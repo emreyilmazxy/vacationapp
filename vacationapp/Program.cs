@@ -1,5 +1,6 @@
 ﻿bool tekrar = true; 
-while (tekrar) { 
+while (tekrar)                       //uygulama sonunda tekrar yapılmak istenebilceği için tüm kodlar bir döngü içine alındı.
+{                                           
     string city;
 do
 {
@@ -10,12 +11,12 @@ do
                   3-)Çeşme (başlangıç 5000 TL) ");
     city = Console.ReadLine().ToLower().Trim();
 
-    if (city != "bodrum" && city != "çeşme" && city != "marmaris")
+    if (city != "bodrum" && city != "çeşme" && city != "marmaris")  // döngü içinde kullanıcı doğru değer kontrölü yapıldı.
     {
         Console.WriteLine(@"hatalı giriş yaptınız!ÖRN:bodrum
 ");
     }
-} while (city != "bodrum" && city != "çeşme" && city != "marmaris");
+} while (city != "bodrum" && city != "çeşme" && city != "marmaris");  //do while dögülerinin bittiği yerlerler
     
     int personNumber;
     string input;
@@ -25,11 +26,11 @@ do
     while (true)
     {
         input = Console.ReadLine();
-
+        
         // Eğer input bir tam sayıya çevrilebiliyorsa ve pozitifse
-        if (int.TryParse(input, out personNumber) && personNumber > 0)
+        if (int.TryParse(input, out personNumber) && personNumber > 0)    //BURADA TRY PARSE METODU İLE KULLANICIDAN ALINAN DEĞER int çevrildi
         {
-            break; // Geçerli bir sayı girildi, döngüden çık
+            break; 
         }
         else
         {
@@ -48,8 +49,8 @@ do
     case "çeşme":
         {
             Console.WriteLine(@"gitmek istediğiniz yer çeşme.
-                 YAPILABİLECEKLER: deniz,kum,güneş,disco disco partizani");
-            break;  
+                 YAPILABİLECEKLER: deniz,kum,güneş,disco disco partizani");     //iflerden daha kolay olduğu için switch case yapısı kullanıldı.
+                break;  
         }
 
     case "marmaris":
@@ -60,7 +61,7 @@ do
 
         }
 }
-
+    // şehir maliyetleri tutulduğu değişken .değişken duruma göre yeni bir alabilir.
 int cityPrice;
 
 if (city == " bodrum")
@@ -89,7 +90,7 @@ do
                         2-) HAVA YOLU GİDİŞ-DÖNÜŞ 4000 TL");
 
     Console.WriteLine();
-    Console.WriteLine(@"lÜTFEN yukarıdakiseçeneklerden birtanesini seçiniz");
+    Console.WriteLine(@"lÜTFEN yukarıdakiseçeneklerden birtanesini seçiniz"); //yanlış değer girilmesi halinde kontrol döngüsü
     Console.WriteLine();
     way = Convert.ToInt32(Console.ReadLine());
 
@@ -99,8 +100,8 @@ do
 
     }
 } while (way != 1 && way != 2);
-
-int wayPrice;
+    //yol maliyetinin tutulduğu değişken. değişken duruma göre yeni bir alabilir.
+    int wayPrice;
 
 if (way == 1)
 {
@@ -113,9 +114,9 @@ else
 
 
 Console.WriteLine();
-int sum = (cityPrice + wayPrice)* personNumber;
+int sum = (cityPrice + wayPrice)* personNumber;   // alınan verilerin matematiksel işlemleri sum değişkenine atandı.
 
-Console.WriteLine();
+    Console.WriteLine();
 
 Console.Write($@"tatilinizin toplam maliyeti >{sum} TL");
 Console.WriteLine();
@@ -133,7 +134,10 @@ Console.WriteLine(@"başka bir tatil planlamak ister misiniz?
         if (answer != "1" && answer != "2")
         {
             Console.WriteLine("lütfen sadece 1 veya 2 girin");
-
+            Console.WriteLine();
+            Console.WriteLine(@"başka bir tatil planlamak ister misiniz?
+                 1-) EVET  2-)HAYIR 
+");
         }
         else if (answer == "1")
         {
